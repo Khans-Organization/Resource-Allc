@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Resource Allocator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .topNeg {
+            top: -300px;
+        }
+        .topPos {
+            top: 61px;
+        }
+        .mytransition {
+            transition: top 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md border-b-2 border-blue-600">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <a href="#" class="text-xl font-bold text-blue-600">ResourceAlloc</a>
+            <ul class="space-x-6 flex items-center px-8 hidden md:flex">
+                <li><a href="#features" class="hover:text-blue-600">Features</a></li>
+                <li><a href="#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+                <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md">Log In</button>
+                <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md">Sign Up</button>
+            </ul>
+            <img src="../static/images/menu.svg" alt="menu" class="block md:hidden w-6 h-6 cursor-pointer" id="menu">
+        </div>
+    </nav>
+    <div class="mx-auto flex justify-between items-center p-4 absolute topNeg bg-white shadow-md z-100 w-full mytransition" id="mobileMenu">
+        <ul class="space-x-6 flex md:pl-10">
+            <li><a href="#features" class="hover:text-blue-600">Features</a></li>
+            <li><a href="#about" class="hover:text-blue-600">About</a></li>
+            <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+        <img src="../static/images/close.svg" alt="close" class="block w-6 h-6 cursor-pointer" id="close">
+    </div>
+
+    <!-- Hero Section -->
+    <header class="bg-blue-600 text-white py-20 shadow-md">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold head">Welcome to ResourceAlloc</h1>
+            <p class="text-lg my-8 head">Simplify and streamline your university's resource management.</p>
+            <a href="#get-started" class="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 head">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 features">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-8">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mx-6">
+                <div class="shadow-md p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Departmental Allocation</h3>
+                    <p class="text-gray-600">Efficiently allocate resources within each department, ensuring every team gets the tools and facilities they need to succeed. Simplify the distribution process and reduce conflicts.</p>
+                </div>
+                <div class="shadow-md p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">Real-Time Tracking</h3>
+                    <p class="text-gray-600">Monitor resource usage and availability in real-time, providing transparency and accountability. Stay updated with live data to make informed decisions quickly.</p>
+                </div>
+                <div class="shadow-md p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-2">User-Friendly Interface</h3>
+                    <p class="text-gray-600">Enjoy an intuitive and accessible design that caters to all users. Navigate with ease and complete tasks efficiently without the need for extensive training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-gray-100 py-16 about">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4">About Us</h2>
+            <p class="text-gray-700 px-6">ResourceAlloc is a comprehensive platform built to revolutionize the allocation and management of university resources. Our goal is to ensure that every department gets what it needs, precisely when it needs it, reducing inefficiencies and enhancing productivity. By leveraging smart algorithms and a user-centric design, we aim to simplify resource planning for universities of all sizes.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 contact">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+            <p class="text-gray-700 mb-4">Have questions or feedback? Reach out to us!</p>
+            <a href="mailto:support@resourcealloc.com" class="text-blue-600 underline">support@resourcealloc.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 ResourceAlloc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let menu = document.getElementById('menu');
+        let close = document.getElementById('close');
+
+        menu.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('topNeg');
+            document.getElementById('mobileMenu').classList.add('topPos');
+        });
+        close.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('topPos');
+            document.getElementById('mobileMenu').classList.add('topNeg');
+        });
+
+
+        const tl = gsap.timeline();
+        tl.from(".head", {
+            opacity: 0,
+            y: -50,
+            duration: 0.5,
+        })
+
+        tl.from(".features", {
+            opacity: 0,
+            y: 50,
+            duration: 0.25,
+            stagger: 0.25
+        })
+        tl.from(".about", {
+            opacity: 0,
+            y: 50,
+            duration: 0.25,
+            stagger: 0.5,
+        })
+        tl.from(".contact", {
+            opacity: 0,
+            y: 50,
+            duration: 0.25,
+            stagger: 0.5,
+            scrollTrigger: ".contact"
+        })
+
+    </script>
+</body>
+</html>
